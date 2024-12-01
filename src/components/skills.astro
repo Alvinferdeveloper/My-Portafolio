@@ -1,0 +1,65 @@
+---
+import TecnologyCard from "./tecnologyCard.astro";
+---
+
+<div class="skills">
+  <div class="skills_info">
+    <div class="skills_info_header">
+      <span>Skills</span>
+      <h3>
+        Habilidades, herramientas y tecnologias que utilizo como desarrollador
+        de software
+      </h3>
+    </div>
+  </div>
+  <div class="skills_cards">
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+    <TecnologyCard />
+  </div>
+</div>
+
+<style>
+  .skills {
+    background: rgb(8, 8, 29);
+    color: white;
+  }
+  .skills_info {
+    height: 8em;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    column-gap: 5px;
+  }
+
+  .skills_info_header {
+    text-align: center;
+    width: 50%;
+  }
+
+  .skills_info_header span {
+    background: rgb(99, 98, 98);
+    border-radius: 30px;
+    padding: 0 10px;
+  }
+  .skills_info_header h3{
+    margin-top: 15px;
+  }
+  .skills_cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 30px 10px;
+  }
+</style>
