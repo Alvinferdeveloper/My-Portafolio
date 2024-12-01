@@ -1,13 +1,18 @@
+---
+import { Image } from "astro:assets";
+
+const { url, name } = Astro.props;
+---
 <div class="tecnology-card">
     <div class="tecnology-card__img">
-        <img src="js.png" alt="">
+        <Image src={url} alt="Habilidad" width={100} height={100}>
     </div>
-    <span>React</span>
+    <span>{name}</span>
 </div>
 
 <style>
     .tecnology-card{
-        width: 220px;
+        width: 160px;
         display: flex;
         flex-direction: column;
         row-gap: 5px;
