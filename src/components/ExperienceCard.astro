@@ -1,0 +1,43 @@
+---
+const { company, activities, date } = Astro.props;
+---
+
+<div class="experience-card">
+    <div class="experience-card__company">
+        { company }
+    </div>
+    <div class="experience-card__activities">
+        { activities}
+    </div>
+    <div class="experience-card_date">
+        { date }
+    </div>
+</div>
+
+<style>
+    .experience-card {
+        background: #1a1e30;
+        border-radius: 0.5em;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
+    .experience-card div{
+        flex:1;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .experience-card__activities{
+        flex:5;
+    }
+
+    .experience-card__company{
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    
+</style>

@@ -1,0 +1,62 @@
+---
+import ExperienceCard from "./ExperienceCard.astro";
+
+const experience = [
+  {
+    company: "Freelance",
+    activities:
+      "Diseñé e implementé una solución web que optimizó los procesos de atención al cliente, mejorando la eficiencia y reduciendo tiempos de espera, apliqué tecnologías modernas y enfoques ágiles para asegurar un sistema escalable y fácil de mantener en un restaurante de la ciudad de León",
+    date: "Enero 2024 - Junio 2024",
+  },
+  {
+    company: "Freelance",
+    activities:
+      "Diseñé e implementé una herramienta web que permitió a las autoridades universitarias crear, gestionar y analizar encuestas dirigidas a los estudiantes, incorporé un sistema intuitivo para estudiantes y administradores, con funciones avanzadas de reportes y análisis en la universidad UNAN LEÓN.",
+    date: "Agosto 2024 - Noviembre 2024",
+  },
+];
+---
+<div class="experience">
+  <div class="experience_info">
+    <div class="experience_info_header">
+      <span>Experiencia</span>
+      <p>Aqui encuentras un breve resumen de mi mas reciente experiencia</p>
+    </div>
+  </div>
+  <div class="experience_cards">
+    {
+      experience.map(ex => <ExperienceCard  company={ex.company} activities={ex.activities} date={ex.date}/>)
+    }
+  </div>
+</div>
+
+<style>
+  .experience {
+    background: #1d223a;
+    color: white;
+  }
+  .experience_info {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    column-gap: 5px;
+  }
+
+  .experience_info_header {
+    text-align: center;
+  }
+
+  .experience_info_header span {
+    background: rgb(99, 98, 98);
+    border-radius: 30px;
+    padding: 0 10px;
+    margin-top: -100px;
+  }
+  .experience_info_header p {
+    margin-top: 10px;
+  }
+  .experience_cards {
+    padding: 20px 150px;
+  }
+</style>
