@@ -1,0 +1,64 @@
+---
+import ProyectCard from "./ProyectCard.astro";
+import Portfolio from '../../public/portfolio.webp';
+
+const proyects  = [
+  {
+    image: Portfolio ,
+    name: "Portfolio",
+    description: "Portafilio desarrollado para mostrar mis habilidades y experiencia como desarrollador de software, utilizando tecnologias modernas y buenas practicas de desarrollo Portafilio desarrollado para mostrar mis habilidades y experiencia como desarrollador de software, utilizando tecnologias modernas y buenas practicas de desarrollo",
+    technologies: ["React", "Astro", "Tailwind", "Typescript","React", "Astro", "Tailwind", "Typescript", "Astro", "Tailwind", "Typescript"]
+  },
+  {
+    image: Portfolio ,
+    name: "Portfolio",
+    description: "Portafilio desarrollado para mostrar mis habilidades y experiencia como desarrollador de software, utilizando tecnologias modernas y buenas practicas de desarrollo Portafilio desarrollado para mostrar mis habilidades y experiencia como desarrollador de software, utilizando tecnologias modernas y buenas practicas de desarrollo",
+    technologies: ["React", "Astro", "Tailwind", "Typescript","React", "Astro", "Tailwind", "Typescript", "Astro", "Tailwind", "Typescript"]
+  }
+]
+---
+<div class="proyects">
+  <div class="proyects_info">
+    <div class="proyects_info_header">
+      <span>Proyectos</span>
+      <p>Algunos de los proyectos mas importantes que he construido</p>
+    </div>
+  </div>
+  <div class="proyects_cards">
+   {
+    proyects.map((proyect, index) => <ProyectCard index={index} image ={ proyect.image } name={ proyect.name } description={ proyect.description } technologies={ proyect.technologies }/>)
+   }
+  </div>
+</div>
+
+<style>
+  .proyects {
+    background: #0c0e1c;
+    color: white;
+  }
+  .proyects_info {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    column-gap: 5px;
+  }
+
+  .proyects_info_header {
+    text-align: center;
+  }
+
+  .proyects_info_header span {
+    background: rgb(99, 98, 98);
+    border-radius: 30px;
+    padding: 0 10px;
+    margin-top: -100px;
+  }
+  .proyects_info_header p {
+    margin-top: 10px;
+  }
+  .proyects_cards {
+    padding: 20px 150px;
+    margin-top: 20px;
+  }
+</style>

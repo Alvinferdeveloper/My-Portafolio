@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+    index:number
+    image: ImageMetadata,
+    name: string,
+    description: string,
+    technologies: string[],
+}
+const { index, image, name, description, technologies } = Astro.props; 
+---
+
+<div class=`proyect ${index % 2 === 0 ? '' : 'project-reverse'}`>
+    <div class="proyect-visualization">
+        <Image src={ image } alt="Proyecto Personal"/>
+    </div>
+    <div class="proyect-description">
+        <div class="proyect-description__desc">
+            <h3>{name}</h3>
+            <p>{description}</p>
+        </div>
+        <div class="proyect-description__technologies">
+            {
+                technologies.map(technology => 
+                    <div class="tecnology-tag">
+                       <p> { technology }</p>
+                    </div>
+                )
+            }
+        </div>
+        <div class="proyect-description__links">
+            
+        </div>
+    </div>
+</div>
+
+<style>
+    .proyect {
+        background:  #1d223a;
+        display: flex;
+        height: 30em;
+        border-radius: 0.5em;
+        flex-direction: row;
+        margin-bottom: 2em;
+    }
+
+    .project-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .proyect-visualization{
+        flex: 1;
+        background: #1a1e30;
+        padding: 2.3em;
+        border-radius: 0.5em;
+    }
+    .proyect-visualization img{
+        width: 100%;
+        height: 100%;
+        border-radius: 0.6em;
+        object-fit: cover;
+    }
+    .proyect-description{
+        flex: 1;
+        padding: 2.3em;
+    }
+    .proyect-description__desc p{
+        margin-top: 12px;
+    }
+    .proyect-description__technologies{
+        margin-top: 20px;
+    }
+
+    .tecnology-tag{
+        display: inline-block;
+        background: rgb(10, 14, 22);
+        border-radius: 40px;
+        margin-right: 5px;
+        padding: 1px 20px;
+        margin-bottom: 7px;
+    }
+    .tecnology-tag p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
