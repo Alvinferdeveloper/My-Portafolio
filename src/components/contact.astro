@@ -5,8 +5,8 @@
   </p>
 
   <div class="contact__info">
-      <p><span class="phone-icon"><i class="fa-solid fa-phone"></i></span>alvinfer67@gmail.com<span class="copy-icon"><i class="fa-regular fa-copy"></i></span></p>
-      <p><span class="mail-icon"><i class="fa-solid fa-envelope"></i></span>+505 83281195<span class="copy-icon"><i class="fa-regular fa-copy"></i></span></p>
+      <p class="contact__info--email"><span class="phone-icon"><i class="fa-solid fa-envelope"></i></span>alvinfer67@gmail.com<span class="copy-icon"><i class="fa-regular fa-copy"></i></span></p>
+      <p class="contact__info--phone"><span class="mail-icon"><i class="fa-solid fa-phone"></i></span>+505 83281195<span class="copy-icon"><i class="fa-regular fa-copy"></i></span></p>
   </div>
 
   <div class="social-links">
@@ -20,6 +20,33 @@
     <p>© 2025 | desarrollado con ❤️ por <span>Albin Fernandez</span></p>
   </div>
 </footer>
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+    const copyIcons = document.querySelectorAll(".copy-icon");
+
+    copyIcons.forEach(icon => {
+      icon.addEventListener("click", (event) => {
+        const element = event.target as HTMLElement;
+        const parentElement = element.closest('p');
+        const id = parentElement.classList.contains('contact__info--email') ? 'email' : 'phone';
+        copyToClipBoard(id)
+      });
+    });
+  });
+
+  async function copyToClipBoard(id: string) {
+    const contactInfo = document.querySelector(`.contact__info--${id}`);
+    const text = contactInfo.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(text);
+      alert(`Texto copiado: ${text}`);
+    } catch (err) {
+      console.error("Error al copiar:", err);
+    }
+  }
+
+</script>
+
 
 <style>
     
