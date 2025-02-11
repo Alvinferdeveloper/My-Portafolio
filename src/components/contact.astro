@@ -5,7 +5,7 @@
   </p>
 
   <div class="contact__info">
-      <p class="contact__info--email"><span class="phone-icon"><i class="fa-solid fa-envelope"></i></span>alvinfer67@gmail.com<span class="copy-icon"><i class="fa-regular fa-copy"></i></span></p>
+      <p class="contact__info--email"><span class="phone-icon"><i class="fa-solid fa-envelope"></i></span>alvinfer67@gmail.com<span class="copy-icon"><i class="fa-regular fa-copy "></i></span></p>
       <p class="contact__info--phone"><span class="mail-icon"><i class="fa-solid fa-phone"></i></span>+505 83281195<span class="copy-icon"><i class="fa-regular fa-copy"></i></span></p>
   </div>
 
@@ -29,7 +29,7 @@
         const element = event.target as HTMLElement;
         const parentElement = element.closest('p');
         const id = parentElement.classList.contains('contact__info--email') ? 'email' : 'phone';
-        copyToClipBoard(id)
+        copyToClipBoard(id).then(()=> showCheckIcon(id))
       });
     });
   });
@@ -37,12 +37,20 @@
   async function copyToClipBoard(id: string) {
     const contactInfo = document.querySelector(`.contact__info--${id}`);
     const text = contactInfo.textContent.trim();
-    try {
-      await navigator.clipboard.writeText(text);
-      alert(`Texto copiado: ${text}`);
-    } catch (err) {
-      console.error("Error al copiar:", err);
-    }
+    return await navigator.clipboard.writeText(text);
+
+  }
+
+  function showCheckIcon(id: string){
+    const contactInfo = document.querySelector(`.contact__info--${id}`);
+    const copyIcon = contactInfo.querySelector('.fa-copy');
+    const checkIconHTML = '<i class="fa-solid fa-check"></i>';
+    const copyIconHTML = '<i class="fa-regular fa-copy"></i>';
+    copyIcon.outerHTML = checkIconHTML;
+    setTimeout(() => {
+      const checkIcon = contactInfo.querySelector('.fa-check');
+      checkIcon.outerHTML = copyIconHTML;
+    }, 2000);
   }
 
 </script>
