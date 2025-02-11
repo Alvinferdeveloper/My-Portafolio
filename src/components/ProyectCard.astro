@@ -84,5 +84,14 @@ const { index, image, name, description, technologies } = Astro.props;
         justify-content: center;
         align-items: center;
     }
+    @media screen and (max-width: 1064px) {
+        .proyect, .project-reverse{
+            height: auto;
+            flex-direction: column;
+        }
+        .proyect-visualization {
+            padding: 0.5em;
+        }
+    }
 
 </style>
