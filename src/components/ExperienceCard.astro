@@ -40,5 +40,10 @@ const { company, activities, date } = Astro.props;
         font-size: 1.5em;
     }
 
-    
+    @media screen and (max-width: 950px) {
+        .experience-card {
+            flex-direction: column;
+        }
+        
+    }
 </style>
