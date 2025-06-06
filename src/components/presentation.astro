@@ -1,48 +1,51 @@
-  <section id="inicio" class="inicio">
-    <div class="contenido">
-      <header>
-        <div class="logo">
-          <h1>ALVIN</h1>
-        </div>
-        <nav id="nav" class="">
-          <a href="#inicio">Inicio</a>
-          <a href="#habilidades">Habilidades</a>
-          <a href="#experiencia">Experiencia</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
+<section id="inicio" class="inicio">
+  <div class="contenido">
+    <header>
+      <div class="logo">
+        <h1>ALBIN</h1>
+      </div>
+      <nav id="nav" class="">
+        <a href="#inicio">Inicio</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
 
-        <!-- Icono del menu responsive -->
-        <div id="icono-nav" class="responsive-menu-icon">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+      <!-- Icono del menu responsive -->
+      <div id="icono-nav" class="responsive-menu-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
 
-        <div class="redes">
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        </div>
-      </header>
+      <div class="redes">
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </header>
 
-      <div class="fila">
-        <div class="col">
-          <h2>Desarrollador Fullstack</h2>
-          <p>
-            Soy desarrollador full-stack con experiencia en crear aplicaciones
-            web dinámicas. Me apasiona diseñar interfaces atractivas y construir
-            soluciones eficientes que mejoran la experiencia del usuario.
-          </p>
+    <div class="fila">
+      <div class="col">
+        <h2>Desarrollador de software</h2>
+        <p>
+          Desarrollador de software con 3 años de experiencia en el diseño e
+          implementación de soluciones utilizando lenguajes de programación,
+          frameworks y herramientas modernas. Estudiante activo de Ingeniería de
+          Sistemas, con una sólida orientación al aprendizaje continuo y al
+          perfeccionamiento de habilidades técnicas. Comprometido con la calidad
+          del código, la eficiencia y la resolución efectiva de problemas.
+        </p>
 
-          <button class="btn btn-1">Descargar CV</button>
-        </div>
-        <div class="col">
-          <div class="contenedor-img">
-            <img src="foto-inicio.png" alt="" />
-          </div>
+        <button class="btn btn-1">Descargar CV</button>
+      </div>
+      <div class="col">
+        <div class="contenedor-img">
+          <img src="foto-inicio.png" alt="" />
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 <style>
   .inicio {
     background: linear-gradient(to right, #1d234f, #2b9cff);
@@ -139,7 +142,6 @@
   #icono-nav:hover {
     background-color: #3e3e3e;
   }
-  
 
   @media screen and (max-width: 800px) {
     .redes {
@@ -210,7 +212,7 @@
 
   const links = [...document.querySelectorAll("#nav a")];
   for (let i = 0; i < links.length; i++) {
-    links[i].addEventListener('click',() =>{
+    links[i].addEventListener("click", () => {
       var x = document.getElementById("nav");
       x.className = "";
       const btnEliminar = document.querySelector("#nav span");
