@@ -6,8 +6,10 @@ interface Props {
     name: string,
     description: string,
     technologies: string[],
+    demo_url:string,
+    github_url:string
 }
-const { index, image, name, description, technologies } = Astro.props; 
+const { index, image, name, description, technologies, demo_url, github_url } = Astro.props; 
 ---
 
 <div class=`proyect ${index % 2 === 0 ? '' : 'project-reverse'}`>
@@ -29,7 +31,12 @@ const { index, image, name, description, technologies } = Astro.props;
             }
         </div>
         <div class="proyect-description__links">
-            
+            <a href={demo_url} target="_blank">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <a href={github_url} target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
         </div>
     </div>
 </div>
@@ -38,7 +45,7 @@ const { index, image, name, description, technologies } = Astro.props;
     .proyect {
         background:  #1d223a;
         display: flex;
-        height: 30em;
+        height: 25em;
         border-radius: 0.5em;
         flex-direction: row;
         margin-bottom: 2em;
@@ -83,6 +90,21 @@ const { index, image, name, description, technologies } = Astro.props;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .proyect-description__links{
+        margin-top: 20px;
+    }
+
+    .proyect-description__links i:hover{
+        scale: 1.1;
+        transition: 0.3s;
+    }
+
+    .proyect-description__links a{
+        margin-right: 10px;
+        color: white;
+        text-decoration: none;
     }
     @media screen and (max-width: 1064px) {
         .proyect, .project-reverse{

@@ -11,7 +11,7 @@ import { proyects } from "@data/proyects";
   </div>
   <div class="proyects_cards">
    {
-    proyects.map((proyect, index) => <ProyectCard index={index} image ={ proyect.image } name={ proyect.name } description={ proyect.description } technologies={ proyect.technologies }/>)
+    proyects.map((proyect, index) => <ProyectCard index={index} image ={ proyect.image } name={ proyect.name } description={ proyect.description } technologies={ proyect.technologies } demo_url={ proyect.demo_url } github_url={ proyect.github_url }/>)
    }
   </div>
 </div>
