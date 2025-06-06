@@ -1,4 +1,4 @@
-import Portfolio from '../../public/portfolio.webp';
+import Image_Locator_Demo from '../../public/image_locator_demo.webp';
 import  Clean_Imports_Demo from '../../public/clean_imports_demo.gif';
 export const proyects  = [
     {
@@ -10,11 +10,11 @@ export const proyects  = [
       github_url: "https://github.com/Alvinferdeveloper/unused-imports-extension"
     },
     {
-      image: Portfolio ,
-      name: "Portfolio",
-      description: "Portafilio desarrollado para mostrar mis habilidades y experiencia como desarrollador de software, utilizando tecnologias modernas y buenas practicas de desarrollo Portafilio desarrollado para mostrar mis habilidades y experiencia como desarrollador de software, utilizando tecnologias modernas y buenas practicas de desarrollo",
-      technologies: ["React", "Astro", "Tailwind", "Typescript","React", "Astro", "Tailwind", "Typescript", "Astro", "Tailwind", "Typescript"],
-      demo_url: "https://github.com/alvinfer67/portfolio",
-      github_url: "https://github.com/alvinfer67/portfolio"
+      image: Image_Locator_Demo ,
+      name: "Image Locator",
+      description: "Esta herramienta web permite a los usuarios obtener la ubicación geográfica donde fue tomada una imagen, analizando los metadatos (EXIF) que contiene. Es útil para fotógrafos, periodistas o cualquier persona interesada en rastrear el origen geográfico de una fotografía.",
+      technologies: ["Next js", "Tailwind", "Typescript"],
+      demo_url: "https://image-locator.vercel.app",
+      github_url: "https://github.com/Alvinferdeveloper/image-locator"
     }
   ]
