@@ -11,7 +11,7 @@ import { experience } from "@data/experience";
   </div>
   <div class="experience_cards">
     {
-      experience.map(ex => <ExperienceCard  company={ex.company} activities={ex.activities} date={ex.date}/>)
+      experience.map(ex => <ExperienceCard  company={ex.company} activities={ex.activities} date={ex.date} logo={ex.logo} position={ex.position}/>)
     }
   </div>
 </div>
