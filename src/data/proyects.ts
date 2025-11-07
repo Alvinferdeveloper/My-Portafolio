@@ -7,7 +7,7 @@ export const proyects = [
     name: "Clean Imports extension",
     description: "Esta extensión para Visual Studio Code permite limpiar automáticamente los imports no utilizados en archivos TypeScript y JavaScript. Mejora la legibilidad del código, mantiene los archivos limpios y ayuda a evitar dependencias innecesarias. Con un solo clic o comando, detecta y elimina los import no usados, facilitando el mantenimiento del código en proyectos grandes o pequeños.",
     technologies: ["Node js", "Typescript", "VSCode Extension API", "vscode-test"],
-    demo_url: "https://marketplace.visualstudio.com/items?itemName=Alvinferdev.Clean-Imports",
+    demo_url: "https://marketplace.visualstudio.com/items?itemName=Alvinferdev.RemoveUnusedImports",
     github_url: "https://github.com/Alvinferdeveloper/unused-imports-extension"
   },
   {
