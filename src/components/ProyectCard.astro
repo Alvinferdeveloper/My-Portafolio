@@ -1,20 +1,21 @@
 ---
 import { Image } from "astro:assets";
 interface Props {
-    index:number
-    image: ImageMetadata,
-    name: string,
-    description: string,
-    technologies: string[],
-    demo_url:string,
-    github_url:string
+    index: number;
+    image: ImageMetadata;
+    name: string;
+    description: string;
+    technologies: string[];
+    demo_url: string;
+    github_url: string;
 }
-const { index, image, name, description, technologies, demo_url, github_url } = Astro.props; 
+const { index, image, name, description, technologies, demo_url, github_url } =
+    Astro.props;
 ---
 
 <div class=`proyect ${index % 2 === 0 ? '' : 'project-reverse'}`>
     <div class="proyect-visualization">
-        <Image src={ image } alt="Proyecto Personal"/>
+        <Image src={image} alt="Proyecto Personal" />
     </div>
     <div class="proyect-description">
         <div class="proyect-description__desc">
@@ -23,17 +24,21 @@ const { index, image, name, description, technologies, demo_url, github_url } = 
         </div>
         <div class="proyect-description__technologies">
             {
-                technologies.map(technology => 
+                technologies.map((technology) => (
                     <div class="tecnology-tag">
-                       <p> { technology }</p>
+                        <p> {technology}</p>
                     </div>
-                )
+                ))
             }
         </div>
         <div class="proyect-description__links">
-            <a href={demo_url} target="_blank">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
+            {
+                demo_url && (
+                    <a href={demo_url} target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square" />
+                    </a>
+                )
+            }
             <a href={github_url} target="_blank">
                 <i class="fa-brands fa-github"></i>
             </a>
@@ -43,7 +48,7 @@ const { index, image, name, description, technologies, demo_url, github_url } = 
 
 <style>
     .proyect {
-        background:  #1d223a;
+        background: #1d223a;
         display: flex;
         height: 25em;
         border-radius: 0.5em;
@@ -55,30 +60,30 @@ const { index, image, name, description, technologies, demo_url, github_url } = 
         flex-direction: row-reverse;
     }
 
-    .proyect-visualization{
+    .proyect-visualization {
         flex: 1;
         background: #1a1e30;
         padding: 2.3em;
         border-radius: 0.5em;
     }
-    .proyect-visualization img{
+    .proyect-visualization img {
         width: 100%;
         height: 100%;
         border-radius: 0.6em;
         object-fit: cover;
     }
-    .proyect-description{
+    .proyect-description {
         flex: 1;
         padding: 2.3em;
     }
-    .proyect-description__desc p{
+    .proyect-description__desc p {
         margin-top: 12px;
     }
-    .proyect-description__technologies{
+    .proyect-description__technologies {
         margin-top: 20px;
     }
 
-    .tecnology-tag{
+    .tecnology-tag {
         display: inline-block;
         background: rgb(10, 14, 22);
         border-radius: 40px;
@@ -92,22 +97,23 @@ const { index, image, name, description, technologies, demo_url, github_url } = 
         align-items: center;
     }
 
-    .proyect-description__links{
+    .proyect-description__links {
         margin-top: 20px;
     }
 
-    .proyect-description__links i:hover{
+    .proyect-description__links i:hover {
         scale: 1.1;
         transition: 0.3s;
     }
 
-    .proyect-description__links a{
+    .proyect-description__links a {
         margin-right: 10px;
         color: white;
         text-decoration: none;
     }
     @media screen and (max-width: 1064px) {
-        .proyect, .project-reverse{
+        .proyect,
+        .project-reverse {
             height: auto;
             flex-direction: column;
         }
@@ -115,5 +121,4 @@ const { index, image, name, description, technologies, demo_url, github_url } = 
             padding: 0.5em;
         }
     }
-
 </style>

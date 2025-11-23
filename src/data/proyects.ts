@@ -1,6 +1,7 @@
 import Image_Locator_Demo from '../../public/image_locator_demo.webp';
 import Clean_Imports_Demo from '../../public/clean_imports_demo.gif';
 import WebConsoleDemo from '../../public/web_terminal.gif';
+import SUMMA_Demo from '../../public/summa_demo.gif';
 export const proyects = [
   {
     image: Clean_Imports_Demo,
@@ -9,6 +10,13 @@ export const proyects = [
     technologies: ["Node js", "Typescript", "VSCode Extension API", "vscode-test"],
     demo_url: "https://marketplace.visualstudio.com/items?itemName=Alvinferdev.RemoveUnusedImports",
     github_url: "https://github.com/Alvinferdeveloper/unused-imports-extension"
+  },
+  {
+    image: SUMMA_Demo,
+    name: "SUMMA",
+    description: "SUMMA es un portal web de empleo diseñado para promover la inclusión laboral mediante una experiencia totalmente accesible y apoyada por inteligencia artificial. El sistema permite a las empresas publicar ofertas adaptadas a personas con discapacidad y ofrece a los candidatos herramientas avanzadas para encontrar oportunidades que realmente se ajusten a sus habilidades.",
+    technologies: ["Go", "Gin", "Typescript", "Next js", "Tailwind", "PostgreSQL", "RabbitMQ", "Redis", "Web socket"],
+    github_url: "https://github.com/Alvinferdeveloper/summa-backend"
   },
   {
     image: WebConsoleDemo,
