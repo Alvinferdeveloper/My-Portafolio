@@ -3,6 +3,7 @@ import Clean_Imports_Demo from '../../public/clean_imports_demo.gif';
 import WebConsoleDemo from '../../public/web_terminal.gif';
 import SUMMA_Demo from '../../public/summa_demo.gif';
 import WebChatDemo from '../../public/web_chat_demo.gif';
+import BodegasDemo from '../../public/bodegas_demo.gif';
 export const proyects = [
   {
     image: Clean_Imports_Demo,
@@ -33,6 +34,12 @@ export const proyects = [
     description: "Web Chat es una herramienta que permite ingresar una o varias URLs, extraer automáticamente su contenido y conversar con él mediante un modelo de lenguaje (LLM). El usuario puede hacer preguntas, resumir información y ampliar el contexto agregando nuevas páginas durante la conversación. El sistema integra pagos con PayPal para acceder a funciones avanzadas.",
     technologies: ["Next js", "Typescript", "Tailwind", "Supabase", "PostgreSQL", "PayPal"],
     github_url: "https://github.com/Alvinferdeveloper/web-chat"
+  }, {
+    image: BodegasDemo,
+    name: "Bodegas Inventory",
+    description: "Plataforma web diseñada para gestionar múltiples bodegas y los materiales asociados dentro de una empresa de construcción. Permite registrar entradas y salidas de materiales, asignar bodegueros responsables de aprobar movimientos y mantener un control preciso del inventario en tiempo real. El sistema centraliza toda la información, mejora la trazabilidad de recursos y optimiza la administración logística de las bodegas.",
+    technologies: ["Next js", "Typescript", "Tailwind", "Prisma", "MySQL"],
+    github_url: "https://github.com/Alvinferdeveloper/construction_inventory"
   },
   {
     image: Image_Locator_Demo,
