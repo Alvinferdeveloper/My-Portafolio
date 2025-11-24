@@ -2,20 +2,34 @@
   <div class="contact__container">
     <span class="contact__title">Ponte en contacto</span>
     <p class="contact__description">
-      ¿Qué sigue? Siéntete libre de contactarme si estás buscando un desarrollador, tienes una consulta o simplemente quieres conectar.
+      ¿Qué sigue? Siéntete libre de contactarme si estás buscando un
+      desarrollador, tienes una consulta o simplemente quieres conectar.
     </p>
 
     <div class="contact__info">
-      <p class="contact__info--email"><span class="phone-icon"><i class="fa-solid fa-envelope"></i></span>alvinfer67@gmail.com<span class="copy-icon"><i class="fa-regular fa-copy "></i></span></p>
-      <p class="contact__info--phone"><span class="mail-icon"><i class="fa-solid fa-phone"></i></span>+505 83281195<span class="copy-icon"><i class="fa-regular fa-copy"></i></span></p>
+      <p class="contact__info--email">
+        <span class="phone-icon"><i class="fa-solid fa-envelope"></i></span
+        >alvinfer67@gmail.com<span class="copy-icon"
+          ><i class="fa-regular fa-copy"></i></span>
+      </p>
+      <p class="contact__info--phone">
+        <span class="mail-icon"><i class="fa-solid fa-phone"></i></span>+505
+        85437473<span class="copy-icon"
+          ><i class="fa-regular fa-copy"></i></span>
+      </p>
     </div>
 
     <div class="social-links">
       <p>Tambien puedes encontrarme en estas plataformas!</p>
-      <a href="https://github.com/Alvinferdeveloper" target="_blank"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/albin-dario-fernandez-galeano-997403297" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/Alvinferdeveloper" target="_blank"
+        ><i class="fa-brands fa-github"></i></a
+      >
+      <a
+        href="https://www.linkedin.com/in/albin-dario-fernandez-galeano-997403297"
+        target="_blank"><i class="fa-brands fa-linkedin"></i></a
+      >
       <a href="" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-   </div>
+    </div>
 
     <div class="credits">
       <p>© 2025 | desarrollado con ❤️ por <span>Albin Fernandez</span></p>
@@ -23,15 +37,17 @@
   </div>
 </footer>
 <script>
- document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const copyIcons = document.querySelectorAll(".copy-icon");
 
-    copyIcons.forEach(icon => {
+    copyIcons.forEach((icon) => {
       icon.addEventListener("click", (event) => {
         const element = event.target as HTMLElement;
-        const parentElement = element.closest('p');
-        const id = parentElement.classList.contains('contact__info--email') ? 'email' : 'phone';
-        copyToClipBoard(id).then(()=> showCheckIcon(id))
+        const parentElement = element.closest("p");
+        const id = parentElement.classList.contains("contact__info--email")
+          ? "email"
+          : "phone";
+        copyToClipBoard(id).then(() => showCheckIcon(id));
       });
     });
   });
@@ -40,94 +56,89 @@
     const contactInfo = document.querySelector(`.contact__info--${id}`);
     const text = contactInfo.textContent.trim();
     return await navigator.clipboard.writeText(text);
-
   }
 
-  function showCheckIcon(id: string){
+  function showCheckIcon(id: string) {
     const contactInfo = document.querySelector(`.contact__info--${id}`);
-    const copyIcon = contactInfo.querySelector('.fa-copy');
+    const copyIcon = contactInfo.querySelector(".fa-copy");
     const checkIconHTML = '<i class="fa-solid fa-check"></i>';
     const copyIconHTML = '<i class="fa-regular fa-copy"></i>';
     copyIcon.outerHTML = checkIconHTML;
     setTimeout(() => {
-      const checkIcon = contactInfo.querySelector('.fa-check');
+      const checkIcon = contactInfo.querySelector(".fa-check");
       checkIcon.outerHTML = copyIconHTML;
     }, 2000);
   }
-
 </script>
 
-
 <style>
-    
-    .contact {
-      background-color: #1d223a;
-      color: #dadada;
-      text-align: center;
-      padding: 2em 0;
-      display: flex;
-      justify-content: center;
-    }
+  .contact {
+    background-color: #1d223a;
+    color: #dadada;
+    text-align: center;
+    padding: 2em 0;
+    display: flex;
+    justify-content: center;
+  }
 
-    .contact__container{
-      width: 800px;
-      min-width: 0px;
-    }
-    .contact__title {
-        background: rgb(99, 98, 98);
-        border-radius: 30px;
-        padding: 0 10px;
-    }
-  
-    .contact__description {
-      font-size: 1.1rem;
-      margin-top: 10px;
-    }
+  .contact__container {
+    width: 800px;
+    min-width: 0px;
+  }
+  .contact__title {
+    background: rgb(99, 98, 98);
+    border-radius: 30px;
+    padding: 0 10px;
+  }
 
-    .contact__info{
-        margin-top: 30px;
-    }
-    .contact__info p{
-        font-size: clamp(1.5em, 2vw, 3em);
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin-right: 10px;
-        font-weight: bold;
-        color: white;
-    }
+  .contact__description {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
 
-    .copy-icon {
-        margin-left: 30px;
-        cursor: pointer;
-    }
+  .contact__info {
+    margin-top: 30px;
+  }
+  .contact__info p {
+    font-size: clamp(1.5em, 2vw, 3em);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 10px;
+    font-weight: bold;
+    color: white;
+  }
 
-    .phone-icon, .mail-icon {
-        margin-right: 30px;
-    }
-    .social-links {
-        margin-top: 25px
-    }
-    .social-links p {
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-    }
-    .social-links a {
-      color: white;
-      margin: 0 0.5rem;
-      font-size: 1.25rem;
-    }
-  
-  
-    .credits {
-      position: absolute;
-      width: 100%;
-      height: 3rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      left: 0;
-      background: #0c0e1c;
-      margin-top: 2rem;
-      font-size: 0.875rem;
-    }
-  
-  </style>
+  .copy-icon {
+    margin-left: 30px;
+    cursor: pointer;
+  }
+
+  .phone-icon,
+  .mail-icon {
+    margin-right: 30px;
+  }
+  .social-links {
+    margin-top: 25px;
+  }
+  .social-links p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  .social-links a {
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .credits {
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    background: #0c0e1c;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+  }
+</style>
