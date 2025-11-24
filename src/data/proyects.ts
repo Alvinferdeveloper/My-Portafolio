@@ -2,6 +2,7 @@ import Image_Locator_Demo from '../../public/image_locator_demo.webp';
 import Clean_Imports_Demo from '../../public/clean_imports_demo.gif';
 import WebConsoleDemo from '../../public/web_terminal.gif';
 import SUMMA_Demo from '../../public/summa_demo.gif';
+import WebChatDemo from '../../public/web_chat_demo.gif';
 export const proyects = [
   {
     image: Clean_Imports_Demo,
@@ -25,6 +26,13 @@ export const proyects = [
     technologies: ["Next js", "Typescript", "Tailwind", "Prisma", "MySQL"],
     demo_url: "https://web-console-ten.vercel.app/",
     github_url: "https://github.com/Alvinferdeveloper/WEB_CONSOLE"
+  },
+  {
+    image: WebChatDemo,
+    name: "Web Chat",
+    description: "Web Chat es una herramienta que permite ingresar una o varias URLs, extraer automáticamente su contenido y conversar con él mediante un modelo de lenguaje (LLM). El usuario puede hacer preguntas, resumir información y ampliar el contexto agregando nuevas páginas durante la conversación. El sistema integra pagos con PayPal para acceder a funciones avanzadas.",
+    technologies: ["Next js", "Typescript", "Tailwind", "Supabase", "PostgreSQL", "PayPal"],
+    github_url: "https://github.com/Alvinferdeveloper/web-chat"
   },
   {
     image: Image_Locator_Demo,
