@@ -10,8 +10,9 @@ export const proyects = [
   {
     image: ChatHubDemo,
     name: "ChatHub",
-    description: "ChatHub es una red social diseñada para conectar personas a través de salas de discusión basadas en intereses comunes. Al apostar por mensajes efímeros y la organización en subgrupos, garantizamos interacciones dinámicas y conversaciones genuinamente espontáneas.",
-    technologies: ["Next js", "Typescript", "Tailwind", "Prisma", "MySQL", "Socket.io", "Node js", "Redis", "Supabase"],
+    description: "ChatHub es una red social diseñada para conectar personas a través de salas de discusión basadas en intereses comunes.Mediante un sistema de scoring por actividad y una arquitectura segura con URLs pre- firmadas, garantizamos interacciones dinámicas y conversaciones genuinamente espontáneas en tiempo real.",
+    technologies: ["Next js", "Typescript", "Tailwind", "Prisma", "MySQL", "Socket.io", "Node js", "Redis",
+      "Supabase"],
     github_url: "https://github.com/Alvinferdeveloper/chatHub"
   },
   {
