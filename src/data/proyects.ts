@@ -5,15 +5,23 @@ import SUMMA_Demo from '../../public/summa_demo.gif';
 import WebChatDemo from '../../public/web_chat_demo.gif';
 import BodegasDemo from '../../public/bodegas_demo.gif';
 import ChatHubDemo from '../../public/chathub_demo.gif';
+import Estudia from '../../public/estudia_demo.gif';
 
 export const proyects = [
+  {
+    image: Estudia,
+    name: "Estudia",
+    description: "Estudia es un ecosistema de aprendizaje inteligente diseñado para optimizar el rendimiento académico de alto nivel.Mediante el uso de inteligencia artificial, la plataforma transforma documentos estáticos en herramientas dinámicas, permitiendo la generación automatizada de notas críticas, exámenes personalizados y retroalimentación analítica en tiempo real.",
+    technologies: ["Next.js", "NestJS", "TypeScript", "Tailwind CSS", "Typeorm", "PostgreSQL", "Supabase", "Better Auth", "Vercel AI SDK", "TanStack Query"],
+    github_url: "https://github.com/Alvinferdeveloper/estudia-frontend"
+  },
   {
     image: ChatHubDemo,
     name: "ChatHub",
     description: "ChatHub es una red social diseñada para conectar personas a través de salas de discusión basadas en intereses comunes.Mediante un sistema de scoring por actividad y una arquitectura segura con URLs pre- firmadas, garantizamos interacciones dinámicas y conversaciones genuinamente espontáneas en tiempo real.",
     technologies: ["Next js", "Typescript", "Tailwind", "Prisma", "MySQL", "Socket.io", "Node js", "Redis",
       "Supabase"],
-    github_url: "https://github.com/Alvinferdeveloper/chatHub"
+    github_url: "https://github.com/Alvinferdeveloper/random-chat-next"
   },
   {
     image: Clean_Imports_Demo,
