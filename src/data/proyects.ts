@@ -6,6 +6,7 @@ import WebChatDemo from '../../public/web_chat_demo.gif';
 import BodegasDemo from '../../public/bodegas_demo.gif';
 import ChatHubDemo from '../../public/chathub_demo.gif';
 import Estudia from '../../public/estudia_demo.gif';
+import Cromo from '../../public/cromo_demo.gif';
 
 export const proyects = [
   {
@@ -14,6 +15,14 @@ export const proyects = [
     description: "Estudia es un ecosistema de aprendizaje inteligente diseñado para optimizar el rendimiento académico de alto nivel.Mediante el uso de inteligencia artificial, la plataforma transforma documentos estáticos en herramientas dinámicas, permitiendo la generación automatizada de notas críticas, exámenes personalizados y retroalimentación analítica en tiempo real.",
     technologies: ["Next.js", "NestJS", "TypeScript", "Tailwind CSS", "Typeorm", "PostgreSQL", "Supabase", "Better Auth", "Vercel AI SDK", "TanStack Query"],
     github_url: "https://github.com/Alvinferdeveloper/estudia-frontend"
+  },
+  {
+    image: Cromo,
+    name: "CROMO FC",
+    description: "Cromo FC es la plataforma social definitiva para coleccionistas de cromos del Mundial 2026. Nuestra aplicación conecta a personas de todo el mundo para facilitar el intercambio de cromos de forma segura y eficiente. A través de un mercado visual y geolocalizado, los usuarios pueden gestionar su inventario, publicar sus repetidos y encontrar exactamente las cartas que les faltan mediante un sistema inteligente de coincidencias en tiempo real.",
+    technologies: ["Next js", "Typescript", "Tailwind CSS", "Supabase", "PostgreSQL"],
+    github_url: "https://github.com/Alvinferdeveloper/CROMO-FC.git",
+    demo_url: "https://cromofc.vercel.app/"
   },
   {
     image: ChatHubDemo,
