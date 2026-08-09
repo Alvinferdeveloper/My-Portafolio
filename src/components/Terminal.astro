@@ -1,0 +1,72 @@
+---
+import { getNameBanner } from "../terminal/banner";
+import { runCommand } from "../terminal/commands";
+import { ui, type Lang } from "../i18n/ui";
+import { profile } from "@data/profile";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = ui[lang];
+const banner = getNameBanner();
+const promptPrefix = `${s["prompt.user"]}@${s["prompt.host"]}:~$`;
+
+const aboutOutput = await runCommand({
+  lang,
+  args: ["about"],
+  rawInput: "about",
+  history: [],
+  bannerText: banner,
+});
+---
+
+<div class="terminal" id="terminal" data-lang={lang}>
+  <div class="terminal__chrome">
+    <div class="terminal__buttons" aria-hidden="true">
+      <span class="term-btn term-btn--red"></span>
+      <span class="term-btn term-btn--yellow"></span>
+      <span class="term-btn term-btn--green"></span>
+    </div>
+    <div class="terminal__title">{s["prompt.user"]}@{s["prompt.host"]}: ~</div>
+  </div>
+
+  <div class="terminal__body" id="terminal-body" role="log" aria-live="polite">
+    <div id="terminal-output">
+      <pre class="ascii-banner">{banner}</pre>
+      <p class="output-hint">{s["boot.welcome"]}</p>
+      <Fragment set:html={aboutOutput.html} />
+      <p class="output-hint" set:html={s["boot.hint"]} />
+    </div>
+
+    <div class="terminal__line terminal__line--prompt">
+      <span class="prompt-decorator">{promptPrefix}</span>
+      <input
+        id="terminal-input"
+        class="terminal__input"
+        type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        aria-label="Terminal command input"
+      />
+    </div>
+  </div>
+
+  <noscript>
+    <p class="noscript-warning">
+      {
+        lang === "es"
+          ? "Activa JavaScript para usar la terminal interactiva. Mientras tanto, puedes encontrarme en:"
+          : "Enable JavaScript to use the interactive terminal. In the meantime, you can find me at:"
+      }
+      <a href={profile.githubUrl}>GitHub</a> ·
+      <a href={profile.linkedinUrl}>LinkedIn</a> ·
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    </p>
+  </noscript>
+</div>
+
+<script src="../terminal/engine.ts"></script>
