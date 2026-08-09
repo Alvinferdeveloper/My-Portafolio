@@ -46,7 +46,7 @@ export const logos = [
     },
     {
       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
-      name: "PosteSQL"
+      name: "PostgreSQL"
     },
     {
       url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
