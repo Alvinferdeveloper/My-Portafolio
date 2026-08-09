@@ -36,6 +36,7 @@ function init(): void {
   const s = ui[lang];
   const bannerText = bannerEl?.textContent ?? "";
   const promptPrefix = `${s["prompt.user"]}@${s["prompt.host"]}:~$`;
+  const bootHtml = outputEl.innerHTML;
 
   let history = loadHistory();
   let historyCursor = history.length;
@@ -106,7 +107,7 @@ function init(): void {
     const result = await runCommand({ lang, args, rawInput: trimmed, history: historySnapshot, bannerText });
 
     if (result.clear) {
-      outputEl!.innerHTML = "";
+      outputEl!.innerHTML = bootHtml;
     } else if (result.html) {
       appendHtml(result.html);
     }
