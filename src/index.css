@@ -149,6 +149,7 @@ body {
   font-size: clamp(0.4rem, 2vw, 0.85rem);
   line-height: 1.15;
   overflow-x: auto;
+  overflow-y: hidden;
   white-space: pre;
   margin-bottom: 10px;
 }
