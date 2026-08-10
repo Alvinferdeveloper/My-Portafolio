@@ -83,7 +83,7 @@ function init(): void {
         return;
       }
       case "openResume": {
-        window.open(profile.resumeUrl, "_blank", "noopener,noreferrer");
+        window.open(effect.url, "_blank", "noopener,noreferrer");
         return;
       }
     }

@@ -16,7 +16,7 @@ export interface CommandContext {
 export type CommandEffect =
   | { type: "navigate"; path: string }
   | { type: "copy"; target: "email" | "phone" }
-  | { type: "openResume" };
+  | { type: "openResume"; url: string };
 
 export interface CommandOutput {
   html: string;
@@ -279,8 +279,8 @@ export async function runCommand(ctx: CommandContext): Promise<CommandOutput> {
       return renderContact(lang, rest);
     case "resume":
       return {
-        html: `<p>${s["resume.opening"]}</p>${lang === "en" ? `<p class="output-hint">${s["resume.onlySpanish"]}</p>` : ""}`,
-        effect: { type: "openResume" },
+        html: `<p>${s["resume.opening"]}</p>`,
+        effect: { type: "openResume", url: profile[lang].resumeUrl },
       };
     case "lang": {
       const target = rest[0]?.toLowerCase();
