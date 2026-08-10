@@ -59,6 +59,10 @@ export const ui = {
     "notFound.prefix": "Comando no encontrado:",
     "notFound.hint": "Escribe <b>help</b> para ver la lista de comandos.",
     "banner.reprint": "",
+    "theme.current": "Tema actual",
+    "theme.available": "Temas disponibles:",
+    "theme.switched": "Tema cambiado a",
+    "theme.unknown": "Tema no reconocido.",
   },
   en: {
     "site.title": "Albin — Terminal",
@@ -109,5 +113,9 @@ export const ui = {
     "notFound.prefix": "Command not found:",
     "notFound.hint": "Type <b>help</b> to see the list of commands.",
     "banner.reprint": "",
+    "theme.current": "Current theme",
+    "theme.available": "Available themes:",
+    "theme.switched": "Theme switched to",
+    "theme.unknown": "Unrecognized theme.",
   },
 } as const;

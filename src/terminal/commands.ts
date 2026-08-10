@@ -5,18 +5,22 @@ import { proyects } from "@data/proyects";
 import { logos } from "@data/logos";
 import { pathForLang } from "../i18n/utils";
 
+export type Theme = "brand" | "matrix" | "amber";
+
 export interface CommandContext {
   lang: Lang;
   args: string[];
   rawInput: string;
   history: string[];
   bannerText: string;
+  currentTheme: Theme;
 }
 
 export type CommandEffect =
   | { type: "navigate"; path: string }
   | { type: "copy"; target: "email" | "phone" }
-  | { type: "openResume"; url: string };
+  | { type: "openResume"; url: string }
+  | { type: "theme"; value: Theme };
 
 export interface CommandOutput {
   html: string;
@@ -59,7 +63,10 @@ export const COMMAND_DEFS: CommandDef[] = [
   { id: "sudo", aliases: ["sudo"], description: { es: "Intenta ejecutar algo como superusuario.", en: "Try to run something as superuser." } },
   { id: "date", aliases: ["date", "fecha"], description: { es: "Muestra la fecha y hora actual.", en: "Shows the current date and time." } },
   { id: "echo", aliases: ["echo"], description: { es: "Repite el texto que escribas.", en: "Echoes back the text you type." } },
+  { id: "theme", aliases: ["theme", "tema"], description: { es: "Cambia el tema visual (brand, matrix, amber).", en: "Switch the visual theme (brand, matrix, amber)." } },
 ];
+
+const THEMES: Theme[] = ["brand", "matrix", "amber"];
 
 const ALIAS_MAP: Record<string, string> = {};
 for (const def of COMMAND_DEFS) {
@@ -186,6 +193,10 @@ function isLang(value: string | undefined): value is Lang {
   return value === "es" || value === "en";
 }
 
+function isTheme(value: string | undefined): value is Theme {
+  return value === "brand" || value === "matrix" || value === "amber";
+}
+
 function renderContact(lang: Lang, args: string[]): CommandOutput {
   const s = ui[lang];
   if (args[0] === "copy") {
@@ -308,6 +319,22 @@ export async function runCommand(ctx: CommandContext): Promise<CommandOutput> {
       return { html: renderDate(lang) };
     case "echo":
       return { html: rest.length ? `<p>${escapeHtml(rest.join(" "))}</p>` : `<p class="output-hint">${s["echo.usage"]}</p>` };
+    case "theme": {
+      const target = rest[0]?.toLowerCase();
+      const list = `<p class="output-hint">${s["theme.available"]} ${THEMES.join(", ")}</p>`;
+      if (!target) {
+        return {
+          html: `<p><span class="field-label">${s["theme.current"]}:</span> ${ctx.currentTheme}</p>${list}`,
+        };
+      }
+      if (!isTheme(target)) {
+        return { html: `<p class="output-error">${s["theme.unknown"]}</p>${list}` };
+      }
+      if (target === ctx.currentTheme) {
+        return { html: `<p><span class="field-label">${s["theme.current"]}:</span> ${target}</p>` };
+      }
+      return { html: `<p>${s["theme.switched"]} ${target}</p>`, effect: { type: "theme", value: target } };
+    }
     default:
       return {
         html: `<p class="output-error">${s["notFound.prefix"]} ${escapeHtml(rawInput)}</p><p class="output-hint">${s["notFound.hint"]}</p>`,

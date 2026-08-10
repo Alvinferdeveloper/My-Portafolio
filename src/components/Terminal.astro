@@ -19,10 +19,11 @@ const aboutOutput = await runCommand({
   rawInput: "about",
   history: [],
   bannerText: banner,
+  currentTheme: "brand",
 });
 ---
 
-<div class="terminal" id="terminal" data-lang={lang}>
+<div class="terminal" id="terminal" data-lang={lang} data-theme="brand">
   <div class="terminal__chrome">
     <div class="terminal__buttons" aria-hidden="true">
       <span class="term-btn term-btn--red"></span>

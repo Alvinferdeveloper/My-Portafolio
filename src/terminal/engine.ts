@@ -1,10 +1,15 @@
-import { runCommand, escapeHtml, allAliases, type CommandEffect } from "./commands";
+import { runCommand, escapeHtml, allAliases, type CommandEffect, type Theme } from "./commands";
 import { ui, type Lang } from "../i18n/ui";
 import { profile } from "@data/profile";
 
 const HISTORY_KEY = "terminal.history";
 const LANG_NOTICE_KEY = "terminal.langSwitchNotice";
+const THEME_KEY = "terminal.theme";
 const MAX_HISTORY = 50;
+
+function isTheme(value: string | null): value is Theme {
+  return value === "brand" || value === "matrix" || value === "amber";
+}
 
 function loadHistory(): string[] {
   try {
@@ -31,6 +36,14 @@ function init(): void {
   const bannerEl = document.querySelector<HTMLElement>(".ascii-banner");
 
   if (!root || !outputEl || !input || !bodyEl) return;
+
+  try {
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (isTheme(savedTheme)) root.dataset.theme = savedTheme;
+  } catch {
+    // ignore
+  }
+  let currentTheme: Theme = isTheme(root.dataset.theme ?? null) ? (root.dataset.theme as Theme) : "brand";
 
   const lang = (root.dataset.lang as Lang) || "es";
   const s = ui[lang];
@@ -86,6 +99,16 @@ function init(): void {
         window.open(effect.url, "_blank", "noopener,noreferrer");
         return;
       }
+      case "theme": {
+        currentTheme = effect.value;
+        root!.dataset.theme = effect.value;
+        try {
+          localStorage.setItem(THEME_KEY, effect.value);
+        } catch {
+          // ignore
+        }
+        return;
+      }
     }
   }
 
@@ -104,7 +127,7 @@ function init(): void {
     saveHistory(history);
 
     const args = trimmed.split(/\s+/).filter(Boolean);
-    const result = await runCommand({ lang, args, rawInput: trimmed, history: historySnapshot, bannerText });
+    const result = await runCommand({ lang, args, rawInput: trimmed, history: historySnapshot, bannerText, currentTheme });
 
     if (result.clear) {
       outputEl!.innerHTML = bootHtml;
