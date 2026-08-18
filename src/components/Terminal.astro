@@ -1,5 +1,5 @@
 ---
-import { getNameBanner } from "../terminal/banner";
+import { getBannerHtml } from "../terminal/banner";
 import { runCommand } from "../terminal/commands";
 import { ui, type Lang } from "../i18n/ui";
 import { profile } from "@data/profile";
@@ -10,7 +10,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const s = ui[lang];
-const banner = getNameBanner();
+const bannerHtml = getBannerHtml();
 const promptPrefix = `${s["prompt.user"]}@${s["prompt.host"]}:~$`;
 
 const aboutOutput = await runCommand({
@@ -18,7 +18,7 @@ const aboutOutput = await runCommand({
   args: ["about"],
   rawInput: "about",
   history: [],
-  bannerText: banner,
+  bannerText: bannerHtml,
   currentTheme: "brand",
 });
 ---
@@ -35,7 +35,7 @@ const aboutOutput = await runCommand({
 
   <div class="terminal__body" id="terminal-body" role="log" aria-live="polite">
     <div id="terminal-output">
-      <pre class="ascii-banner">{banner}</pre>
+      <Fragment set:html={bannerHtml} />
       <p class="output-hint">{s["boot.welcome"]}</p>
       <Fragment set:html={aboutOutput.html} />
       <p class="output-hint" set:html={s["boot.hint"]} />

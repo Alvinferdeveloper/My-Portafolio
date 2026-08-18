@@ -221,13 +221,20 @@ function renderContact(lang: Lang, args: string[]): CommandOutput {
   return { html };
 }
 
+function renderBannerHtml(bannerText: string): string {
+  if (bannerText.trim().startsWith("<")) {
+    return bannerText;
+  }
+  return `<pre class="ascii-banner">${escapeHtml(bannerText)}</pre>`;
+}
+
 function renderNeofetch(lang: Lang, ctx: CommandContext): string {
   const s = ui[lang];
   const p = profile[lang];
   const stack = ["TypeScript", "Next.js", "Node.js", "React"].join(", ");
   return `
     <div class="neofetch">
-      <pre class="ascii-banner">${escapeHtml(ctx.bannerText)}</pre>
+      ${renderBannerHtml(ctx.bannerText)}
       <dl class="neofetch-facts">
         <dt>${s["neofetch.role"]}</dt><dd>${escapeHtml(p.title)}</dd>
         <dt>${s["neofetch.location"]}</dt><dd>${escapeHtml(p.location)}</dd>
@@ -310,7 +317,7 @@ export async function runCommand(ctx: CommandContext): Promise<CommandOutput> {
     case "history":
       return { html: renderHistory(lang, ctx.history) };
     case "banner":
-      return { html: `<pre class="ascii-banner">${escapeHtml(ctx.bannerText)}</pre>` };
+      return { html: renderBannerHtml(ctx.bannerText) };
     case "neofetch":
       return { html: renderNeofetch(lang, ctx) };
     case "sudo":

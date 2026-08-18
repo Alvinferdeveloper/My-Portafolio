@@ -196,18 +196,41 @@ body {
 
 /* ASCII banner */
 
+.ascii-banner-wrapper {
+  margin-bottom: 10px;
+}
+
 .ascii-banner {
   color: var(--term-accent);
   background: var(--term-banner-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: clamp(0.4rem, 2vw, 0.85rem);
+  font-size: clamp(0.45rem, 2vw, 0.85rem);
   line-height: 1.15;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: pre;
-  margin-bottom: 10px;
+  margin: 0;
+}
+
+.ascii-banner--desktop {
+  display: block;
+}
+
+.ascii-banner--mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .ascii-banner--desktop {
+    display: none;
+  }
+
+  .ascii-banner--mobile {
+    display: block;
+    font-size: clamp(0.55rem, 3.5vw, 0.85rem);
+  }
 }
 
 /* Output typography */
@@ -421,6 +444,7 @@ a:hover {
   align-items: center;
 }
 
+.neofetch .ascii-banner-wrapper,
 .neofetch .ascii-banner {
   margin: 0;
   flex-shrink: 0;

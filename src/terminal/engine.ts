@@ -33,6 +33,7 @@ function init(): void {
   const outputEl = document.getElementById("terminal-output");
   const input = document.getElementById("terminal-input") as HTMLInputElement | null;
   const bodyEl = document.getElementById("terminal-body");
+  const bannerWrapper = document.querySelector<HTMLElement>(".ascii-banner-wrapper");
   const bannerEl = document.querySelector<HTMLElement>(".ascii-banner");
 
   if (!root || !outputEl || !input || !bodyEl) return;
@@ -47,7 +48,7 @@ function init(): void {
 
   const lang = (root.dataset.lang as Lang) || "es";
   const s = ui[lang];
-  const bannerText = bannerEl?.textContent ?? "";
+  const bannerText = bannerWrapper?.outerHTML ?? (bannerEl?.outerHTML || bannerEl?.textContent || "");
   const promptPrefix = `${s["prompt.user"]}@${s["prompt.host"]}:~$`;
   const bootHtml = outputEl.innerHTML;
 
